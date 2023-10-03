@@ -17,6 +17,6 @@ class UserController extends Controller
 
     public function showUsers(){
         $users = $this->user->getAllUsers();
-        dd($users);
+        return view('users', compact('users'));
     }
 }
