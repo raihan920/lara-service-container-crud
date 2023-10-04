@@ -19,4 +19,28 @@ class UserController extends Controller
         $users = $this->user->getAllUsers();
         return view('users', compact('users'));
     }
+
+    public function showUser($id){
+        $user = $this->user->getUserById($id);
+        return view('user-details', compact('user'));
+    }
+
+    public function createUser(){
+        return view('user-create');
+    }
+
+    public function storeUser(Request $request){
+        $this->user->createOrUpdate(null, $request);
+        return redirect('users.list');
+    }
+
+    public function updateUser(){
+
+    }
+
+    public function deleteIndividualUser($id){
+        $this->user->deleteUser($id);
+        return redirect('users.list');
+    }
+
 }

@@ -11,13 +11,20 @@ class UserRepository implements RepositoryInterface{
     public function getAllUsers(){
         return User::all();
     }
+
     public function getUserById($id){
-
+        return User::find($id);
     }
+
     public function createOrUpdate($id=null, $collection=[]){
-
+        dd($collection);
+        User::updateOrInsert($id, $collection);
     }
-    public function deleteUer($id){
 
+    public function deleteUser($id){
+        $user = User::find($id);
+        if($user){
+            $user->delete();
+        }
     }
 }

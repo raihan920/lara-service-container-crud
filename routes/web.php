@@ -20,3 +20,7 @@ Route::get('/', function () {
 
 
 Route::get('/users', [UserController::class, 'showUsers'])->name('users.list');
+Route::get('/user/{id}', [UserController::class, 'showUser'])->name('user.details');
+Route::get('/users/delete/{id}', [UserController::class, 'deleteIndividualUser'])->name('user.delete');
+Route::get('/users/create', [UserController::class, 'createUser'])->name('user.create');
+Route::post('/users/store', [UserController::class, 'storeUser'])->name('user.store');
