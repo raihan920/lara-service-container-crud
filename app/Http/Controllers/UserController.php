@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Repositories\RepositoryInterface;
+// use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 
 class UserController extends Controller
@@ -30,8 +31,13 @@ class UserController extends Controller
     }
 
     public function storeUser(Request $request){
+        // DB::table('users')->insert([
+        //     'name' => $request->name,
+        //     'email' => $request->email,
+        //     'address' => $request->address
+        // ]);
         $this->user->createOrUpdate(null, $request);
-        return redirect('users.list');
+        return redirect()->route('users.list');
     }
 
     public function updateUser(){
@@ -40,7 +46,7 @@ class UserController extends Controller
 
     public function deleteIndividualUser($id){
         $this->user->deleteUser($id);
-        return redirect('users.list');
+        return redirect()->route('users.list');
     }
 
 }

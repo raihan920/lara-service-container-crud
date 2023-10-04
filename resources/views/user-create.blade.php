@@ -3,7 +3,7 @@
     <div class="container">
         <h1 class="text-center">Create User</h1>
         <div class="container px-5 my-5">
-            <form method="POST" action="{{ route('user.store') }}">
+            <form method="POST" action="/users/store">
                 @csrf
                 <div class="mb-3">
                     <label class="form-label" for="name">Name</label>

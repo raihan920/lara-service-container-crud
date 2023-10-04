@@ -17,7 +17,9 @@ class UserRepository implements RepositoryInterface{
     }
 
     public function createOrUpdate($id=null, $collection=[]){
-        dd($collection);
+
+        dump($collection);
+
         User::updateOrInsert($id, $collection);
     }
 
